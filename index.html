@@ -3,14 +3,165 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fondo Animado</title>
+    <title>AHŌRA - Made For You</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --text-dark: #1a1a1a;
+            --text-light: #666666;
+            --bg-color: #ffffff;
+        }
+
         body {
             margin: 0;
             padding: 0;
-            background-color: white; /* Ensure base background is white */
+            background-color: var(--bg-color);
             overflow-x: hidden;
-            font-family: sans-serif;
+            font-family: 'Inter', sans-serif;
+            color: var(--text-dark);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 400;
+            margin: 0;
+        }
+
+        /* Website Layout Styles */
+        .content-wrapper {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            min-height: 200vh; /* Ensure enough height for scrolling */
+        }
+
+        header {
+            padding: 2rem 4rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .hero {
+            height: 90vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 2rem;
+        }
+
+        .hero h1 {
+            font-size: 5vw;
+            line-height: 1.1;
+            letter-spacing: 0.02em;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto 2.5rem;
+            line-height: 1.6;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background-color: var(--text-dark);
+            color: white;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-size: 0.85rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background-color: #333;
+        }
+
+        .section {
+            padding: 8rem 4rem;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.6); /* Slight background to make text readable over dense doodles */
+            backdrop-filter: blur(5px);
+        }
+
+        .section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 4rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .feature-item h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-item p {
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        footer {
+            padding: 4rem;
+            text-align: center;
+            background-color: #f9f9f9;
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        @media (max-width: 768px) {
+            header {
+                padding: 1.5rem;
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+            .hero h1 {
+                font-size: 3rem;
+            }
+            .section {
+                padding: 4rem 1.5rem;
+            }
         }
 
         #animated-background {
@@ -47,13 +198,16 @@
 
             /* Apply both animations */
             animation:
-                draw var(--draw-duration, 3s) ease-out forwards,
+                draw var(--draw-duration, 3s) ease-in-out infinite alternate,
                 float var(--float-duration, 6s) ease-in-out infinite alternate;
             animation-delay: var(--draw-delay, 0s), var(--float-delay, 0s);
         }
 
         @keyframes draw {
-            to {
+            0% {
+                stroke-dashoffset: var(--path-length, 1000);
+            }
+            100% {
                 stroke-dashoffset: 0;
             }
         }
@@ -83,10 +237,52 @@
 
     <div id="animated-background"></div>
 
-    <!-- Main content would go here -->
-    <div style="padding: 2rem; z-index: 1;">
-        <h1>Contenido Principal</h1>
-        <p>Este es un texto de prueba sobre el fondo animado.</p>
+    <div class="content-wrapper">
+        <header>
+            <div class="logo">AHŌRA</div>
+            <nav>
+                <ul>
+                    <li><a href="#">Shop</a></li>
+                    <li><a href="#">Custom Made</a></li>
+                    <li><a href="#">About Us</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <section class="hero">
+            <h1>MADE<br>FOR YOU</h1>
+            <p>Personalized details, elevated to something unforgettable. Every detail is designed with intention, created with care and made exclusively for you.</p>
+            <a href="#" class="cta-button">Start Your Idea</a>
+        </section>
+
+        <section class="section">
+            <h2>How It Works</h2>
+            <div class="features">
+                <div class="feature-item">
+                    <h3>01. You share your idea</h3>
+                    <p>Tell us the details, the occasion and what you have in mind. We listen to your story.</p>
+                </div>
+                <div class="feature-item">
+                    <h3>02. We design it</h3>
+                    <p>We create a personalized concept made just for you, focusing on the tiny details.</p>
+                </div>
+                <div class="feature-item">
+                    <h3>03. You receive something unique</h3>
+                    <p>A detail that feels personal, intentional and entirely yours to cherish forever.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" style="background: transparent; backdrop-filter: none;">
+            <h2>For Your Moments</h2>
+            <p style="color: var(--text-light); max-width: 600px; margin: 0 auto; font-size: 1.2rem; line-height: 1.8;">
+                From the big celebrations to the little ones. Thoughtful details for the people who matter.
+            </p>
+        </section>
+
+        <footer>
+            <p>© AHŌRA 2024. All rights reserved. Made For You.</p>
+        </footer>
     </div>
 
     <script>
@@ -101,6 +297,12 @@
             // 5. Zigzag
             // 6. Freehand Circle
             // 7. Star
+            // 8. Triangle
+            // 9. Cloud
+            // 10. Lightning
+            // 11. Diamond
+            // 12. Crescent Moon
+            // 13. Infinity
             const svgPaths = [
                 // Heart
                 "M 50,30 C 50,15 20,10 20,35 C 20,55 45,70 50,85 C 55,70 80,55 80,35 C 80,10 50,15 50,30 Z",
@@ -108,16 +310,26 @@
                 "M 20,80 Q 50,20 80,40 M 60,40 L 80,40 L 70,20",
                 // Spiral
                 "M 50,50 m 0,-5 a 5,5 0 1,0 0,10 a 10,10 0 1,0 0,-20 a 15,15 0 1,0 0,30 a 20,20 0 1,0 0,-40 a 25,25 0 1,0 0,50",
-                // Smiley Face (Eyes and mouth as separate paths in one string, or combined)
-                // We'll use multiple paths for smiley in a single SVG setup, but the code expects one path.
-                // Let's adjust to allow an array of path strings for complex shapes.
+                // Smiley Face
                 ["M 35,40 A 2,2 0 1,1 35.1,40", "M 65,40 A 2,2 0 1,1 65.1,40", "M 30,60 Q 50,80 70,60"],
                 // Zigzag
                 "M 15,30 L 30,70 L 45,30 L 60,70 L 75,30 L 90,70",
                 // Freehand Circle
                 "M 50,10 C 20,15 10,40 15,65 C 20,90 50,95 75,80 C 95,65 90,30 70,15 C 60,10 50,10 50,10",
                 // Star
-                "M 50,10 L 60,35 L 85,35 L 65,50 L 75,75 L 50,60 L 25,75 L 35,50 L 15,35 L 40,35 Z"
+                "M 50,10 L 60,35 L 85,35 L 65,50 L 75,75 L 50,60 L 25,75 L 35,50 L 15,35 L 40,35 Z",
+                // Triangle
+                "M 50,15 L 85,80 L 15,80 Z",
+                // Cloud
+                "M 25,60 a 20,20 0 0,1 0,-40 a 20,20 0 0,1 15,-5 a 20,20 0 0,1 35,0 a 20,20 0 0,1 15,5 a 20,20 0 0,1 0,40 Z",
+                // Lightning
+                "M 55,10 L 25,50 L 50,50 L 40,90 L 75,40 L 50,40 Z",
+                // Diamond
+                "M 50,10 L 85,50 L 50,90 L 15,50 Z",
+                // Crescent Moon
+                "M 60,15 A 35,35 0 1,0 85,60 A 25,25 0 1,1 60,15 Z",
+                // Infinity
+                "M 25,40 C 10,40 10,60 25,60 C 40,60 60,40 75,40 C 90,40 90,60 75,60 C 60,60 40,40 25,40 Z"
             ];
 
             const colors = [
@@ -127,6 +339,8 @@
 
             // Helper to get random number
             const random = (min, max) => Math.random() * (max - min) + min;
+
+            const doodlesArray = [];
 
             for (let i = 0; i < totalDoodles; i++) {
                 const shapeData = svgPaths[Math.floor(Math.random() * svgPaths.length)];
@@ -139,15 +353,28 @@
                 svg.setAttribute('viewBox', '0 0 100 100');
 
                 // Random positioning and base transformation
+                // Allow vertical positioning beyond 100vh to cover scrollable area
                 const posX = random(0, 100);
-                const posY = random(0, 100);
+                const posY = random(-20, 220); // Cover a bit above and well below 100vh
                 const rot = random(0, 360);
                 const scale = random(0.6, 1.2);
 
+                // Save base transform for parallax calculations
+                const baseTransform = `rotate(${rot}deg) scale(${scale})`;
+
                 svg.style.left = `${posX}vw`;
                 svg.style.top = `${posY}vh`;
-                svg.style.transform = `rotate(${rot}deg) scale(${scale})`;
+                svg.style.transform = baseTransform;
                 svg.style.opacity = colorObj.opacity;
+
+                // Parallax speed
+                const speed = random(0.1, 0.8);
+
+                doodlesArray.push({
+                    element: svg,
+                    baseTransform: baseTransform,
+                    speed: speed
+                });
 
                 paths.forEach(d => {
                     const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
@@ -189,6 +416,18 @@
                     p.style.setProperty('--float-delay', `${floatDelay}s`);
                 });
             }
+
+            // Parallax scroll effect
+            window.addEventListener('scroll', () => {
+                const scrollY = window.scrollY;
+
+                doodlesArray.forEach(doodleObj => {
+                    const translateY = scrollY * doodleObj.speed * -1; // Move up as we scroll down
+                    // Combine base transform with parallax transform
+                    // We apply translateY before base rotate/scale so it moves straight up
+                    doodleObj.element.style.transform = `translateY(${translateY}px) ${doodleObj.baseTransform}`;
+                });
+            });
         });
     </script>
 </body>
