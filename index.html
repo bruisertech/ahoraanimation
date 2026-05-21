@@ -7,11 +7,15 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="bg.css">
     <style>
         :root {
             --text-dark: #1a1a1a;
             --text-light: #666666;
-            --bg-color: #ffffff;
+            --bg-color: #fdfbf7; /* Slight warm off-white */
+            --accent-pink: #f9e8e8; /* Soft blush pink */
+            --accent-yellow: #fcf6e3; /* Soft egg yellow */
+            --accent-sage: #e8f0e6; /* Soft sage */
         }
 
         body {
@@ -30,7 +34,7 @@
             margin: 0;
         }
 
-        /* Website Layout Styles */
+        /* Luxury Layout Styles */
         .content-wrapper {
             position: relative;
             z-index: 1;
@@ -142,6 +146,83 @@
             line-height: 1.6;
         }
 
+        /* Product Cards */
+        .collection-grid {
+            gap: 2rem;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+        }
+
+        .product-image {
+            height: 350px;
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+            opacity: 0.9;
+        }
+
+        .product-card:hover .product-image img {
+            transform: scale(1.05);
+        }
+
+        .product-info {
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .product-info h3 {
+            font-size: 1.6rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .product-info p {
+            color: var(--text-light);
+            margin-bottom: 2rem;
+            line-height: 1.5;
+            flex-grow: 1;
+        }
+
+        .product-cta {
+            align-self: flex-start;
+            display: inline-block;
+            padding: 0.8rem 0;
+            color: var(--text-dark);
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-size: 0.8rem;
+            font-weight: 500;
+            border-bottom: 1px solid var(--text-dark);
+            transition: opacity 0.3s ease;
+        }
+
+        .product-cta:hover {
+            opacity: 0.6;
+        }
+
         footer {
             padding: 4rem;
             text-align: center;
@@ -164,73 +245,6 @@
             }
         }
 
-        #animated-background {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            z-index: -1;
-            pointer-events: none;
-            overflow: hidden;
-            background: white;
-        }
-
-        /* SVG Doodle Styles */
-        .doodle {
-            position: absolute;
-            overflow: visible;
-            width: 80px;
-            height: 80px;
-            /* Center the transformation */
-            transform-origin: center center;
-        }
-
-        .doodle path {
-            fill: none;
-            stroke-linecap: round;
-            stroke-linejoin: round;
-            stroke-width: 2.5;
-
-            /* Drawing animation setup */
-            stroke-dasharray: var(--path-length, 1000);
-            stroke-dashoffset: var(--path-length, 1000);
-
-            /* Apply both animations */
-            animation:
-                draw var(--draw-duration, 3s) ease-in-out infinite alternate,
-                float var(--float-duration, 6s) ease-in-out infinite alternate;
-            animation-delay: var(--draw-delay, 0s), var(--float-delay, 0s);
-        }
-
-        @keyframes draw {
-            0% {
-                stroke-dashoffset: var(--path-length, 1000);
-            }
-            100% {
-                stroke-dashoffset: 0;
-            }
-        }
-
-        @keyframes float {
-            0% {
-                transform: translate(0px, 0px) rotate(0deg);
-            }
-            100% {
-                transform: translate(var(--float-x, 10px), var(--float-y, -20px)) rotate(var(--float-rot, 5deg));
-            }
-        }
-
-        /* Scale down on smaller screens */
-        @media (max-width: 768px) {
-            .doodle {
-                width: 50px;
-                height: 50px;
-            }
-            .doodle path {
-                stroke-width: 2;
-            }
-        }
     </style>
 </head>
 <body>
@@ -273,11 +287,49 @@
             </div>
         </section>
 
-        <section class="section" style="background: transparent; backdrop-filter: none;">
-            <h2>For Your Moments</h2>
-            <p style="color: var(--text-light); max-width: 600px; margin: 0 auto; font-size: 1.2rem; line-height: 1.8;">
-                From the big celebrations to the little ones. Thoughtful details for the people who matter.
+        <section class="section" id="collection" style="background: transparent; backdrop-filter: none;">
+            <h2>The Collection</h2>
+            <p style="color: var(--text-light); max-width: 600px; margin: 0 auto 4rem; font-size: 1.2rem; line-height: 1.8;">
+                Curated pieces designed to elevate your everyday moments.
             </p>
+
+            <div class="features collection-grid">
+                <!-- Wine Craft -->
+                <div class="product-card">
+                    <div class="product-image" style="background-color: var(--accent-pink);">
+                        <img src="https://images.unsplash.com/photo-1584916201218-f4242ceb4809?q=80&w=600&auto=format&fit=crop" alt="Wine Craft">
+                    </div>
+                    <div class="product-info">
+                        <h3>Wine Craft</h3>
+                        <p>Artisanal wine accessories for the perfect pour.</p>
+                        <a href="#" class="product-cta">View Details</a>
+                    </div>
+                </div>
+
+                <!-- Printed Mug -->
+                <div class="product-card">
+                    <div class="product-image" style="background-color: var(--accent-yellow);">
+                        <img src="https://images.unsplash.com/photo-1514228742587-6b1558fcca3d?q=80&w=600&auto=format&fit=crop" alt="Printed Mug">
+                    </div>
+                    <div class="product-info">
+                        <h3>Printed Mug</h3>
+                        <p>Start your morning with a mug designed just for you.</p>
+                        <a href="customizer.html?product=mug" class="product-cta">Customize Now</a>
+                    </div>
+                </div>
+
+                <!-- Custom Shirts -->
+                <div class="product-card">
+                    <div class="product-image" style="background-color: var(--accent-sage);">
+                        <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?q=80&w=600&auto=format&fit=crop" alt="Custom Shirts">
+                    </div>
+                    <div class="product-info">
+                        <h3>Custom Shirts</h3>
+                        <p>Wear your story. Premium cotton, personalized prints.</p>
+                        <a href="customizer.html?product=shirt" class="product-cta">Customize Now</a>
+                    </div>
+                </div>
+            </div>
         </section>
 
         <footer>
@@ -285,150 +337,6 @@
         </footer>
     </div>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const container = document.getElementById('animated-background');
-            const totalDoodles = 50; // Total number of shapes to generate
-
-            // 1. Imperfect Heart
-            // 2. Curved Arrow
-            // 3. Spiral
-            // 4. Smiley Face (Eyes and mouth)
-            // 5. Zigzag
-            // 6. Freehand Circle
-            // 7. Star
-            // 8. Triangle
-            // 9. Cloud
-            // 10. Lightning
-            // 11. Diamond
-            // 12. Crescent Moon
-            // 13. Infinity
-            const svgPaths = [
-                // Heart
-                "M 50,30 C 50,15 20,10 20,35 C 20,55 45,70 50,85 C 55,70 80,55 80,35 C 80,10 50,15 50,30 Z",
-                // Arrow
-                "M 20,80 Q 50,20 80,40 M 60,40 L 80,40 L 70,20",
-                // Spiral
-                "M 50,50 m 0,-5 a 5,5 0 1,0 0,10 a 10,10 0 1,0 0,-20 a 15,15 0 1,0 0,30 a 20,20 0 1,0 0,-40 a 25,25 0 1,0 0,50",
-                // Smiley Face
-                ["M 35,40 A 2,2 0 1,1 35.1,40", "M 65,40 A 2,2 0 1,1 65.1,40", "M 30,60 Q 50,80 70,60"],
-                // Zigzag
-                "M 15,30 L 30,70 L 45,30 L 60,70 L 75,30 L 90,70",
-                // Freehand Circle
-                "M 50,10 C 20,15 10,40 15,65 C 20,90 50,95 75,80 C 95,65 90,30 70,15 C 60,10 50,10 50,10",
-                // Star
-                "M 50,10 L 60,35 L 85,35 L 65,50 L 75,75 L 50,60 L 25,75 L 35,50 L 15,35 L 40,35 Z",
-                // Triangle
-                "M 50,15 L 85,80 L 15,80 Z",
-                // Cloud
-                "M 25,60 a 20,20 0 0,1 0,-40 a 20,20 0 0,1 15,-5 a 20,20 0 0,1 35,0 a 20,20 0 0,1 15,5 a 20,20 0 0,1 0,40 Z",
-                // Lightning
-                "M 55,10 L 25,50 L 50,50 L 40,90 L 75,40 L 50,40 Z",
-                // Diamond
-                "M 50,10 L 85,50 L 50,90 L 15,50 Z",
-                // Crescent Moon
-                "M 60,15 A 35,35 0 1,0 85,60 A 25,25 0 1,1 60,15 Z",
-                // Infinity
-                "M 25,40 C 10,40 10,60 25,60 C 40,60 60,40 75,40 C 90,40 90,60 75,60 C 60,60 40,40 25,40 Z"
-            ];
-
-            const colors = [
-                { stroke: '#333333', opacity: 0.3 }, // Grey
-                { stroke: '#D4AF37', opacity: 1.0 }  // Gold
-            ];
-
-            // Helper to get random number
-            const random = (min, max) => Math.random() * (max - min) + min;
-
-            const doodlesArray = [];
-
-            for (let i = 0; i < totalDoodles; i++) {
-                const shapeData = svgPaths[Math.floor(Math.random() * svgPaths.length)];
-                const paths = Array.isArray(shapeData) ? shapeData : [shapeData];
-
-                const colorObj = colors[Math.floor(Math.random() * colors.length)];
-
-                const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-                svg.classList.add('doodle');
-                svg.setAttribute('viewBox', '0 0 100 100');
-
-                // Random positioning and base transformation
-                // Allow vertical positioning beyond 100vh to cover scrollable area
-                const posX = random(0, 100);
-                const posY = random(-20, 220); // Cover a bit above and well below 100vh
-                const rot = random(0, 360);
-                const scale = random(0.6, 1.2);
-
-                // Save base transform for parallax calculations
-                const baseTransform = `rotate(${rot}deg) scale(${scale})`;
-
-                svg.style.left = `${posX}vw`;
-                svg.style.top = `${posY}vh`;
-                svg.style.transform = baseTransform;
-                svg.style.opacity = colorObj.opacity;
-
-                // Parallax speed
-                const speed = random(0.1, 0.8);
-
-                doodlesArray.push({
-                    element: svg,
-                    baseTransform: baseTransform,
-                    speed: speed
-                });
-
-                paths.forEach(d => {
-                    const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
-                    path.setAttribute('d', d);
-                    path.style.stroke = colorObj.stroke;
-
-                    svg.appendChild(path);
-
-                    // We need to calculate the path length AFTER adding to DOM or by creating a temp svg.
-                    // It's easier if we just append and do it later, but we need variables set per path.
-                    // Actually, setting variables on the path element itself via style works.
-                });
-
-                // Random animation variables
-                const floatX = random(-30, 30);
-                const floatY = random(-30, 30);
-                const floatRot = random(-20, 20);
-
-                const drawDuration = random(2, 4);
-                const floatDuration = random(4, 8);
-                const drawDelay = random(0, 2);
-                const floatDelay = random(0, 3);
-
-                svg.style.setProperty('--float-x', `${floatX}px`);
-                svg.style.setProperty('--float-y', `${floatY}px`);
-                svg.style.setProperty('--float-rot', `${floatRot}deg`);
-
-                // Note: we'll apply animation vars to the paths
-                container.appendChild(svg);
-
-                // Calculate length and apply custom vars per path inside the SVG
-                const svgPathsElements = svg.querySelectorAll('path');
-                svgPathsElements.forEach(p => {
-                    const length = p.getTotalLength();
-                    p.style.setProperty('--path-length', length);
-                    p.style.setProperty('--draw-duration', `${drawDuration}s`);
-                    p.style.setProperty('--float-duration', `${floatDuration}s`);
-                    p.style.setProperty('--draw-delay', `${drawDelay}s`);
-                    p.style.setProperty('--float-delay', `${floatDelay}s`);
-                });
-            }
-
-            // Parallax scroll effect
-            window.addEventListener('scroll', () => {
-                const scrollY = window.scrollY;
-
-                doodlesArray.forEach(doodleObj => {
-                    const translateY = scrollY * doodleObj.speed * -1; // Move up as we scroll down
-                    // Combine base transform with parallax transform
-                    // We apply translateY before base rotate/scale so it moves straight up
-                    doodleObj.element.style.transform = `translateY(${translateY}px) ${doodleObj.baseTransform}`;
-                });
-            });
-        });
-    </script>
+    <script src="bg.js"></script>
 </body>
 </html>
