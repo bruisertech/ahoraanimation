@@ -390,7 +390,221 @@
             }
         }
 
-    </style>
+
+        /* Special Edition Styles */
+        .special-edition {
+            padding: 6rem 4rem;
+            background-color: var(--accent-sage);
+            display: flex;
+            justify-content: center;
+        }
+
+        .special-content {
+            display: flex;
+            max-width: 1200px;
+            width: 100%;
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+        }
+
+        .special-image-container {
+            flex: 1;
+            min-height: 500px;
+            background-color: #f0f0f0; /* Fallback */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .special-image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .special-content:hover .special-image-container img {
+            transform: scale(1.03);
+        }
+
+        .special-info {
+            flex: 1;
+            padding: 5rem 4rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+        }
+
+        .eyebrow {
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            font-size: 0.8rem;
+            color: var(--text-light);
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        .special-info h2 {
+            font-size: 3.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-dark);
+        }
+
+        .special-info .price {
+            font-size: 1.8rem;
+            font-family: 'Playfair Display', serif;
+            color: #d4af37;
+            margin-bottom: 2rem;
+            margin-top: 0;
+        }
+
+        .special-info .desc {
+            color: var(--text-light);
+            line-height: 1.8;
+            margin-bottom: 3rem;
+            font-size: 1.1rem;
+        }
+
+        /* Showcase Sections */
+        .showcase-section {
+            padding: 8rem 4rem;
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(5px);
+        }
+
+        .showcase-section.alternate-bg {
+            background: transparent;
+            backdrop-filter: none;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 5rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .section-header h2 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .section-header p {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        /* Bespoke Services Section */
+        .bespoke-section {
+            padding: 8rem 4rem;
+            background-color: var(--text-dark);
+            color: white;
+        }
+
+        .bespoke-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .bespoke-text {
+            flex: 1;
+        }
+
+        .bespoke-text .eyebrow {
+            color: rgba(255,255,255,0.6);
+        }
+
+        .bespoke-text h2 {
+            font-size: 3.5rem;
+            margin-bottom: 2rem;
+            color: white;
+        }
+
+        .bespoke-text p {
+            color: rgba(255,255,255,0.8);
+            line-height: 1.8;
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .bespoke-text .highlight-text {
+            font-family: 'Inter', sans-serif;
+            font-weight: 300;
+            font-size: 1.8rem;
+            margin: 3rem 0 1rem 0;
+            color: #d4af37;
+        }
+
+        .bespoke-text .cta-button {
+            background-color: white;
+            color: var(--text-dark);
+            margin-top: 2rem;
+        }
+
+        .bespoke-text .cta-button:hover {
+            background-color: var(--accent-yellow);
+        }
+
+        .bespoke-image-grid {
+            flex: 1;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            position: relative;
+        }
+
+        .grid-img-1, .grid-img-2 {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 12px;
+        }
+
+        .grid-img-1 {
+            transform: translateY(3rem);
+        }
+
+        @media (max-width: 1024px) {
+            .special-content, .bespoke-content {
+                flex-direction: column;
+            }
+            .special-image-container {
+                min-height: 400px;
+            }
+            .bespoke-image-grid {
+                margin-top: 4rem;
+            }
+            .grid-img-1 {
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .special-edition {
+                padding: 4rem 1.5rem;
+            }
+            .special-info {
+                padding: 3rem 2rem;
+            }
+            .special-info h2 {
+                font-size: 2.5rem;
+            }
+            .section-header h2 {
+                font-size: 2rem;
+            }
+        }
+</style>
 </head>
 <body>
 
@@ -432,47 +646,138 @@
             </div>
         </section>
 
-        <section class="section" id="collection" style="background: transparent; backdrop-filter: none; padding-bottom: 2rem;">
-            <h2>The Collection</h2>
-            <p style="color: var(--text-light); max-width: 600px; margin: 0 auto 4rem; font-size: 1.2rem; line-height: 1.8;">
-                Curated pieces designed to elevate your everyday moments.
-            </p>
 
+        <!-- Special Edition -->
+        <section class="special-edition">
+            <div class="special-content">
+                <div class="special-image-container">
+                    <img src="https://bruisertech.github.io/AHORA/assets/img/gift.png" alt="Love of Moët" onerror="this.src='https://images.unsplash.com/photo-1549465220-1a8b9238cd48?q=80&w=800&auto=format&fit=crop'">
+                </div>
+                <div class="special-info">
+                    <span class="eyebrow">Special Gift</span>
+                    <h2>Love of Moët</h2>
+                    <p class="price">$130</p>
+                    <p class="desc">A carefully curated selection for the ones you cherish the most.<br>Handcrafted details meet timeless elegance.</p>
+                    <a href="https://wa.me/16198555111?text=Hello,%20I%20would%20like%20to%20book%20the%20Love%20of%20Mo%C3%ABt%20special%20gift." target="_blank" class="cta-button">Book now</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- The Drinkware Showcase -->
+        <section class="showcase-section">
+            <div class="section-header">
+                <h2>Drinkware Showcase</h2>
+                <p>Botellas de sección especial, termos y tazas personalizadas para acompañar tus días.</p>
+            </div>
             <div class="features collection-grid">
-                <!-- Wine Craft -->
                 <div class="product-card">
                     <div class="product-image" style="background-color: var(--accent-pink);">
-                        <img src="https://images.unsplash.com/photo-1584916201218-f4242ceb4809?q=80&w=600&auto=format&fit=crop" alt="Wine Craft">
+                        <img src="https://images.unsplash.com/photo-1602143407151-7111542de6e8?q=80&w=600&auto=format&fit=crop" alt="Botellas Especiales">
                     </div>
                     <div class="product-info">
-                        <h3>Wine Craft</h3>
-                        <p>Artisanal wine accessories for the perfect pour.</p>
-                        <a href="https://wa.me/16198555111?text=Hello,%20I%20would%20like%20to%20request%20a%20quote%20to%20customize%20a%20Wine%20Craft%20product." target="_blank" class="product-cta">Customize via WhatsApp</a>
+                        <h3>Botellas Especiales</h3>
+                        <p>Diseños únicos y elegantes para mantenerte hidratado con estilo.</p>
+                        <a href="https://wa.me/16198555111?text=Hola,%20quisiera%20cotizar%20botellas%20personalizadas." target="_blank" class="product-cta">Customize via WhatsApp</a>
                     </div>
                 </div>
-
-                <!-- Printed Mug -->
                 <div class="product-card">
                     <div class="product-image" style="background-color: var(--accent-yellow);">
-                        <img src="https://images.unsplash.com/photo-1514228742587-6b1558fcca3d?q=80&w=600&auto=format&fit=crop" alt="Printed Mug">
+                        <img src="https://images.unsplash.com/photo-1514228742587-6b1558fcca3d?q=80&w=600&auto=format&fit=crop" alt="Tazas Personalizadas">
                     </div>
                     <div class="product-info">
-                        <h3>Printed Mug</h3>
-                        <p>Start your morning with a mug designed just for you.</p>
-                        <a href="https://wa.me/16198555111?text=Hello,%20I%20would%20like%20to%20request%20a%20quote%20to%20customize%20a%20Printed%20Mug." target="_blank" class="product-cta">Customize via WhatsApp</a>
+                        <h3>Tazas Personalizadas</h3>
+                        <p>Comienza tu mañana con una taza diseñada exclusivamente para ti.</p>
+                        <a href="https://wa.me/16198555111?text=Hola,%20quisiera%20cotizar%20tazas%20personalizadas." target="_blank" class="product-cta">Customize via WhatsApp</a>
                     </div>
                 </div>
-
-                <!-- Custom Shirts -->
                 <div class="product-card">
                     <div class="product-image" style="background-color: var(--accent-sage);">
-                        <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?q=80&w=600&auto=format&fit=crop" alt="Custom Shirts">
+                        <img src="https://images.unsplash.com/photo-1614035041530-9b626e2e28a5?q=80&w=600&auto=format&fit=crop" alt="Termos Premium">
                     </div>
                     <div class="product-info">
-                        <h3>Custom Shirts</h3>
-                        <p>Wear your story. Premium cotton, personalized prints.</p>
-                        <a href="https://wa.me/16198555111?text=Hello,%20I%20would%20like%20to%20request%20a%20quote%20to%20customize%20a%20Shirt." target="_blank" class="product-cta">Customize via WhatsApp</a>
+                        <h3>Termos Premium</h3>
+                        <p>Aislamiento térmico superior con el toque personal de AHŌRA.</p>
+                        <a href="https://wa.me/16198555111?text=Hola,%20quisiera%20cotizar%20un%20termo%20premium." target="_blank" class="product-cta">Customize via WhatsApp</a>
                     </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Apparel & Everyday -->
+        <section class="showcase-section alternate-bg">
+            <div class="section-header">
+                <h2>Apparel & Everyday</h2>
+                <p>Camisetas en algodón fully customizable y bolsas de tela personalizadas.</p>
+            </div>
+            <div class="features collection-grid">
+                <div class="product-card">
+                    <div class="product-image" style="background-color: var(--accent-sage);">
+                        <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?q=80&w=600&auto=format&fit=crop" alt="Custom Cotton Shirts">
+                    </div>
+                    <div class="product-info">
+                        <h3>Cotton Shirts</h3>
+                        <p>Camisetas de algodón premium. Un lienzo en blanco para tu custom design.</p>
+                        <a href="https://wa.me/16198555111?text=Hola,%20quisiera%20cotizar%20camisetas%20personalizadas." target="_blank" class="product-cta">Customize via WhatsApp</a>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image" style="background-color: var(--accent-pink);">
+                        <img src="https://images.unsplash.com/photo-1597444535359-90f7193b2184?q=80&w=600&auto=format&fit=crop" alt="Tote Bags">
+                    </div>
+                    <div class="product-info">
+                        <h3>Bolsas de Tela</h3>
+                        <p>Lleva tu estilo a todas partes con nuestras bolsas de tela (tote bags) personalizadas.</p>
+                        <a href="https://wa.me/16198555111?text=Hola,%20quisiera%20cotizar%20bolsas%20de%20tela%20personalizadas." target="_blank" class="product-cta">Customize via WhatsApp</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Creative Stationery -->
+        <section class="showcase-section">
+            <div class="section-header">
+                <h2>Creative Stationery</h2>
+                <p>Papelería creativa, tarjetas, dedicatorias y cajas personalizadas para elevar cada regalo.</p>
+            </div>
+            <div class="features collection-grid" style="grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));">
+                <div class="product-card">
+                    <div class="product-image" style="background-color: var(--accent-yellow); height: 400px;">
+                        <img src="https://images.unsplash.com/photo-1586075010923-2dd4570fb338?q=80&w=800&auto=format&fit=crop" alt="Papelería Creativa">
+                    </div>
+                    <div class="product-info">
+                        <h3>Tarjetas & Dedicatorias</h3>
+                        <p>Expresa tus sentimientos con papelería fina y dedicatorias hechas a la medida.</p>
+                        <a href="https://wa.me/16198555111?text=Hola,%20quisiera%20cotizar%20tarjetas%20o%20dedicatorias." target="_blank" class="product-cta">Customize via WhatsApp</a>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image" style="background-color: var(--accent-pink); height: 400px;">
+                        <img src="https://images.unsplash.com/photo-1607344645866-009c320b63e0?q=80&w=800&auto=format&fit=crop" alt="Cajas Personalizadas">
+                    </div>
+                    <div class="product-info">
+                        <h3>Cajas Personalizadas</h3>
+                        <p>El empaque perfecto existe. Diseñamos cajas que hacen del desempaque una experiencia inolvidable.</p>
+                        <a href="https://wa.me/16198555111?text=Hola,%20quisiera%20cotizar%20cajas%20personalizadas." target="_blank" class="product-cta">Customize via WhatsApp</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Corporate & Events Experiences -->
+        <section class="bespoke-section">
+            <div class="bespoke-content">
+                <div class="bespoke-text">
+                    <span class="eyebrow">Experiences</span>
+                    <h2>Corporate & Event Coverage</h2>
+                    <p>Hacemos que tu evento sea inolvidable. Desde el diseño de invitaciones de boda hasta la cobertura completa de eventos corporativos.</p>
+                    <p>Diseñamos <strong>Kits de Inicio</strong> para empresas (termo + taza + camisa) y artículos promocionales de lujo.</p>
+                    <h3 class="highlight-text">¿Tienes una idea que necesita desarrollo especial?</h3>
+                    <p>Contáctanos para realizarla perfectamente.</p>
+                    <a href="https://wa.me/16198555111?text=Hola,%20tengo%20una%20idea%20o%20evento%20que%20necesita%20desarrollo%20especial." target="_blank" class="cta-button">Plan Your Event</a>
+                </div>
+                <div class="bespoke-image-grid">
+                    <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=80&w=600&auto=format&fit=crop" alt="Event Coverage" class="grid-img-1">
+                    <img src="https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?q=80&w=600&auto=format&fit=crop" alt="Corporate Kit" class="grid-img-2">
                 </div>
             </div>
         </section>
