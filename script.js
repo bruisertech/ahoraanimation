@@ -31,10 +31,23 @@ document.addEventListener('DOMContentLoaded', () => {
         // Calculate scale for 'object-fit: cover'
         const scale = Math.max(canvas.width / img.width, canvas.height / img.height);
 
-        const x = (canvas.width / 2) - (img.width / 2) * scale;
-        const y = (canvas.height / 2) - (img.height / 2) * scale;
+        let drawnWidth = img.width * scale;
+        let drawnHeight = img.height * scale;
 
-        ctx.drawImage(img, x, y, img.width * scale, img.height * scale);
+        // On mobile (portrait), apply a progressive vertical stretch so the paper opens wider,
+        // pushing the top and bottom borders towards the edges of the screen.
+        if (canvas.height > canvas.width) {
+            const progress = obj.frame / (frameCount - 1);
+            // Gradually stretch up to 2.6x to push the 35% thick borders off-screen
+            const maxStretch = 2.6;
+            const stretchFactor = 1 + (maxStretch - 1) * progress;
+            drawnHeight *= stretchFactor;
+        }
+
+        const x = (canvas.width / 2) - (drawnWidth / 2);
+        const y = (canvas.height / 2) - (drawnHeight / 2);
+
+        ctx.drawImage(img, x, y, drawnWidth, drawnHeight);
     }
 
     // Resize canvas to match window
