@@ -226,6 +226,67 @@
             line-height: 1.6;
         }
 
+        /* Drinkware Showcase Grid */
+        .drinkware-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .drinkware-item {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            position: relative;
+            padding-top: 100%; /* 1:1 Aspect Ratio */
+        }
+
+        .drinkware-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+        }
+
+        .drinkware-item img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            padding: 1rem;
+            box-sizing: border-box;
+            background-color: #fafafa;
+        }
+
+        /* Mobile Scroll Snapping */
+        @media (max-width: 768px) {
+            .drinkware-grid {
+                display: flex;
+                flex-wrap: nowrap;
+                overflow-x: auto;
+                overflow-y: hidden;
+                scroll-snap-type: x mandatory;
+                -webkit-overflow-scrolling: touch;
+                padding: 1rem;
+                gap: 1rem;
+                scroll-padding: 1rem;
+            }
+
+            .drinkware-grid::-webkit-scrollbar {
+                display: none;
+            }
+
+            .drinkware-item {
+                flex: 0 0 85vw; /* Almost full width for each item */
+                scroll-snap-align: start;
+            }
+        }
+
         /* Product Cards */
         .collection-grid {
             gap: 2rem;
@@ -746,40 +807,148 @@
         <!-- The Drinkware Showcase -->
         <section class="showcase-section">
             <div class="section-header">
-                <h2>Drinkware Showcase</h2>
-                <p>Special edition bottles, premium thermoses, and custom mugs to accompany your everyday moments.</p>
+                <h2>Custom Drinkware & Corporate Gifts</h2>
+                <p>Elevate your corporate gifting with our premium, personalized drinkware collection. Each piece is designed to reflect excellence and tailored to your unique identity.</p>
             </div>
-            <div class="features collection-grid">
-                <div class="product-card">
-                    <div class="product-image" style="background-color: var(--accent-pink);">
-                        <img src="https://images.unsplash.com/photo-1602143407151-7111542de6e8?q=80&w=600&auto=format&fit=crop" alt="Special Edition Bottles">
-                    </div>
-                    <div class="product-info">
-                        <h3>Special Edition Bottles</h3>
-                        <p>Unique and elegant designs to keep you hydrated in style.</p>
-                        <a href="https://wa.me/16198555111?text=Hello,%20I%20would%20like%20to%20request%20a%20quote%20for%20custom%20bottles." target="_blank" class="product-cta">Customize via WhatsApp</a>
-                    </div>
+            <div class="drinkware-grid">
+                <div class="drinkware-item">
+                    <img src="images/fotos/71pIe4P5gTL-_AC_CR0-0-0-0_SX352_SY330_.jpg" alt="Custom Drinkware - Premium Corporate Gifts" loading="lazy">
                 </div>
-                <div class="product-card">
-                    <div class="product-image" style="background-color: var(--accent-yellow);">
-                        <img src="https://images.unsplash.com/photo-1514228742587-6b1558fcca3d?q=80&w=600&auto=format&fit=crop" alt="Custom Mugs">
-                    </div>
-                    <div class="product-info">
-                        <h3>Custom Mugs</h3>
-                        <p>Start your morning with a mug designed exclusively for you.</p>
-                        <a href="https://wa.me/16198555111?text=Hello,%20I%20would%20like%20to%20request%20a%20quote%20for%20custom%20mugs." target="_blank" class="product-cta">Customize via WhatsApp</a>
-                    </div>
+                <div class="drinkware-item">
+                    <img src="images/fotos/51Uj1eyN0RL-_AC_CR0-0-0-0_SX352_SY330_.jpg" alt="Custom Drinkware - Premium Corporate Gifts" loading="lazy">
                 </div>
-                <div class="product-card">
-                    <div class="product-image" style="background-color: var(--accent-sage);">
-                        <img src="https://images.unsplash.com/photo-1622483767028-3f66f32aef97?q=80&w=600&auto=format&fit=crop" alt="Premium Thermoses">
-                    </div>
-                    <div class="product-info">
-                        <h3>Premium Thermoses</h3>
-                        <p>Superior thermal insulation with the signature AHŌRA personal touch.</p>
-                        <a href="https://wa.me/16198555111?text=Hello,%20I%20would%20like%20to%20request%20a%20quote%20for%20a%20premium%20thermos." target="_blank" class="product-cta">Customize via WhatsApp</a>
-                    </div>
+                <div class="drinkware-item">
+                    <img src="images/fotos/6162s-njy2L-_AC_CR0-0-0-0_SX352_SY330_.jpg" alt="Custom Drinkware - Premium Corporate Gifts" loading="lazy">
                 </div>
+                <div class="drinkware-item">
+                    <img src="images/fotos/61Pow5wsQwL-_AC_CR0-0-0-0_SX352_SY330_.jpg" alt="Custom Drinkware - Premium Corporate Gifts" loading="lazy">
+                </div>
+                <div class="drinkware-item">
+                    <img src="images/fotos/51F5zMrYdNL-_AC_CR0-0-0-0_SX352_SY330_.jpg" alt="Custom Drinkware - Premium Corporate Gifts" loading="lazy">
+                </div>
+                <div class="drinkware-item">
+                    <img src="images/fotos/51GBVNBcAlL-_AC_CR0-0-0-0_SX352_SY330_.jpg" alt="Custom Drinkware - Premium Corporate Gifts" loading="lazy">
+                </div>
+                <div class="drinkware-item">
+                    <img src="images/fotos/61F3xgJkNSL-_AC_CR0-0-0-0_SX352_SY330_.jpg" alt="Custom Drinkware - Premium Corporate Gifts" loading="lazy">
+                </div>
+                <div class="drinkware-item">
+                    <img src="images/fotos/511CPc1wqiL-_AC_CR0-0-0-0_SX352_SY330_.jpg" alt="Custom Drinkware - Premium Corporate Gifts" loading="lazy">
+                </div>
+                <div class="drinkware-item">
+                    <img src="images/fotos/61D7s2qufrL-_AC_CR0-0-0-0_SX352_SY330_.jpg" alt="Custom Drinkware - Premium Corporate Gifts" loading="lazy">
+                </div>
+                <div class="drinkware-item">
+                    <img src="images/fotos/41VqD9gA6iS-_AC_CR0-0-0-0_SX352_SY330_.jpg" alt="Custom Drinkware - Premium Corporate Gifts" loading="lazy">
+                </div>
+                <div class="drinkware-item">
+                    <img src="images/fotos/515J6MssIVL-_AC_CR0-0-0-0_SX352_SY330_.jpg" alt="Custom Drinkware - Premium Corporate Gifts" loading="lazy">
+                </div>
+                <div class="drinkware-item">
+                    <img src="images/fotos/618gOQ-HZoL-_AC_CR0-0-0-0_SX352_SY330_.jpg" alt="Custom Drinkware - Premium Corporate Gifts" loading="lazy">
+                </div>
+                <div class="drinkware-item">
+                    <img src="images/fotos/51lcK24dzAL-_AC_CR0-0-0-0_SX352_SY330_.jpg" alt="Custom Drinkware - Premium Corporate Gifts" loading="lazy">
+                </div>
+                <div class="drinkware-item">
+                    <img src="images/fotos/618grBW2LyL-_AC_CR0-0-0-0_SX352_SY330_.jpg" alt="Custom Drinkware - Premium Corporate Gifts" loading="lazy">
+                </div>
+                <div class="drinkware-item">
+                    <img src="images/fotos/61yKaJDmcXL-_AC_CR0-0-0-0_SX352_SY330_.jpg" alt="Custom Drinkware - Premium Corporate Gifts" loading="lazy">
+                </div>
+                <div class="drinkware-item">
+                    <img src="images/fotos/41v9EyQM9gL-_AC_CR0-0-0-0_SX352_SY330_.jpg" alt="Custom Drinkware - Premium Corporate Gifts" loading="lazy">
+                </div>
+                <div class="drinkware-item">
+                    <img src="images/fotos/51lOcd2UpCL-_AC_CR0-0-0-0_SX352_SY330_.jpg" alt="Custom Drinkware - Premium Corporate Gifts" loading="lazy">
+                </div>
+                <div class="drinkware-item">
+                    <img src="images/fotos/51v8olbk4QL-_AC_CR0-0-0-0_SX352_SY330_.jpg" alt="Custom Drinkware - Premium Corporate Gifts" loading="lazy">
+                </div>
+                <div class="drinkware-item">
+                    <img src="images/fotos/51zW4sJQeTL-_AC_CR0-0-0-0_SX352_SY330_.jpg" alt="Custom Drinkware - Premium Corporate Gifts" loading="lazy">
+                </div>
+                <div class="drinkware-item">
+                    <img src="images/fotos/51b6DdBKRLL-_AC_CR0-0-0-0_SX352_SY330_.jpg" alt="Custom Drinkware - Premium Corporate Gifts" loading="lazy">
+                </div>
+                <div class="drinkware-item">
+                    <img src="images/fotos/418tXPesjxS-_AC_CR0-0-0-0_SX352_SY330_.jpg" alt="Custom Drinkware - Premium Corporate Gifts" loading="lazy">
+                </div>
+                <div class="drinkware-item">
+                    <img src="images/fotos/61r3bPGMelL-_AC_CR0-0-0-0_SX352_SY330_.jpg" alt="Custom Drinkware - Premium Corporate Gifts" loading="lazy">
+                </div>
+                <div class="drinkware-item">
+                    <img src="images/fotos/51NODlfRKQL-_AC_CR0-0-0-0_SX352_SY330_.jpg" alt="Custom Drinkware - Premium Corporate Gifts" loading="lazy">
+                </div>
+                <div class="drinkware-item">
+                    <img src="images/fotos/61Mq7VzSPnL-_AC_CR0-0-0-0_SX352_SY330_.jpg" alt="Custom Drinkware - Premium Corporate Gifts" loading="lazy">
+                </div>
+                <div class="drinkware-item">
+                    <img src="images/fotos/61fl-Ji33DL-_AC_CR0-0-0-0_SX352_SY330_.jpg" alt="Custom Drinkware - Premium Corporate Gifts" loading="lazy">
+                </div>
+                <div class="drinkware-item">
+                    <img src="images/fotos/51FsfeTeP1L-_AC_CR0-0-0-0_SX352_SY330_.jpg" alt="Custom Drinkware - Premium Corporate Gifts" loading="lazy">
+                </div>
+                <div class="drinkware-item">
+                    <img src="images/fotos/61iP0tvxfjL-_AC_CR0-0-0-0_SX352_SY330_.jpg" alt="Custom Drinkware - Premium Corporate Gifts" loading="lazy">
+                </div>
+                <div class="drinkware-item">
+                    <img src="images/fotos/51AJZcamNyS-_AC_CR0-0-0-0_SX352_SY330_.jpg" alt="Custom Drinkware - Premium Corporate Gifts" loading="lazy">
+                </div>
+                <div class="drinkware-item">
+                    <img src="images/fotos/51xkOXq8vwL-_AC_CR0-0-0-0_SX352_SY330_.jpg" alt="Custom Drinkware - Premium Corporate Gifts" loading="lazy">
+                </div>
+                <div class="drinkware-item">
+                    <img src="images/fotos/51D6XRG--9S-_AC_CR0-0-0-0_SX352_SY330_.jpg" alt="Custom Drinkware - Premium Corporate Gifts" loading="lazy">
+                </div>
+                <div class="drinkware-item">
+                    <img src="images/fotos/61jCGVG0PeL-_AC_CR0-0-0-0_SX352_SY330_.jpg" alt="Custom Drinkware - Premium Corporate Gifts" loading="lazy">
+                </div>
+                <div class="drinkware-item">
+                    <img src="images/fotos/61Sjs1pN3fL-_AC_CR0-0-0-0_SX352_SY330_.jpg" alt="Custom Drinkware - Premium Corporate Gifts" loading="lazy">
+                </div>
+                <div class="drinkware-item">
+                    <img src="images/fotos/61OI6rHX7sL-_AC_CR0-0-0-0_SX352_SY330_.jpg" alt="Custom Drinkware - Premium Corporate Gifts" loading="lazy">
+                </div>
+                <div class="drinkware-item">
+                    <img src="images/fotos/51lkJR4UCtL-_AC_CR0-0-0-0_SX352_SY330_.jpg" alt="Custom Drinkware - Premium Corporate Gifts" loading="lazy">
+                </div>
+                <div class="drinkware-item">
+                    <img src="images/fotos/41YGJEyLjLL-_AC_CR0-0-0-0_SX352_SY330_.jpg" alt="Custom Drinkware - Premium Corporate Gifts" loading="lazy">
+                </div>
+                <div class="drinkware-item">
+                    <img src="images/fotos/61V7-lgKvLL-_AC_CR0-0-0-0_SX352_SY330_.jpg" alt="Custom Drinkware - Premium Corporate Gifts" loading="lazy">
+                </div>
+                <div class="drinkware-item">
+                    <img src="images/fotos/61VzxfXiqRL-_AC_CR0-0-0-0_SX352_SY330_.jpg" alt="Custom Drinkware - Premium Corporate Gifts" loading="lazy">
+                </div>
+                <div class="drinkware-item">
+                    <img src="images/fotos/419csbmHuaS-_AC_CR0-0-0-0_SX352_SY330_.jpg" alt="Custom Drinkware - Premium Corporate Gifts" loading="lazy">
+                </div>
+                <div class="drinkware-item">
+                    <img src="images/fotos/511APPltZTL-_AC_CR0-0-0-0_SX352_SY330_.jpg" alt="Custom Drinkware - Premium Corporate Gifts" loading="lazy">
+                </div>
+                <div class="drinkware-item">
+                    <img src="images/fotos/61tUz79GkRL-_AC_CR0-0-0-0_SX352_SY330_.jpg" alt="Custom Drinkware - Premium Corporate Gifts" loading="lazy">
+                </div>
+                <div class="drinkware-item">
+                    <img src="images/fotos/41882m0LliL-_AC_CR0-0-0-0_SX352_SY330_.jpg" alt="Custom Drinkware - Premium Corporate Gifts" loading="lazy">
+                </div>
+                <div class="drinkware-item">
+                    <img src="images/fotos/61h-QaeStiL-_AC_CR0-0-0-0_SX352_SY330_.jpg" alt="Custom Drinkware - Premium Corporate Gifts" loading="lazy">
+                </div>
+                <div class="drinkware-item">
+                    <img src="images/fotos/51Af7KgjAjL-_AC_CR0-0-0-0_SX352_SY330_.jpg" alt="Custom Drinkware - Premium Corporate Gifts" loading="lazy">
+                </div>
+                <div class="drinkware-item">
+                    <img src="images/fotos/41-ZHlJO-BL-_AC_CR0-0-0-0_SX352_SY330_.jpg" alt="Custom Drinkware - Premium Corporate Gifts" loading="lazy">
+                </div>
+                <div class="drinkware-item">
+                    <img src="images/fotos/41XSf9DN0SL-_AC_CR0-0-0-0_SX352_SY330_.jpg" alt="Custom Drinkware - Premium Corporate Gifts" loading="lazy">
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 3rem;">
+                <a href="https://wa.me/16198555111?text=Hello,%20I%20would%20like%20to%20request%20a%20quote%20for%20custom%20drinkware%20and%20corporate%20gifts." target="_blank" class="cta-button">Request a Corporate Quote</a>
             </div>
         </section>
 

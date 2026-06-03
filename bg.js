@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const container = document.getElementById('animated-background');
     if (!container) return; // Guard clause in case it's missing on a page
 
-    const totalDoodles = 50; // Total number of shapes to generate
+    const totalDoodles = 150; // Total number of shapes to generate
 
     const svgPaths = [
         // Heart
