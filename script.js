@@ -201,3 +201,83 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+
+// --- 4. Petals Effect for index.html Special Section ---
+document.addEventListener('DOMContentLoaded', () => {
+    const petalsContainer = document.getElementById('main-petals-container');
+    if (!petalsContainer) return;
+
+    // Use IntersectionObserver to only generate petals when the section is visible
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                if (!window.petalsInterval) {
+                    startMainPetals();
+                }
+            } else {
+                if (window.petalsInterval) {
+                    clearInterval(window.petalsInterval);
+                    window.petalsInterval = null;
+                }
+            }
+        });
+    }, { threshold: 0.1 });
+
+    const specialContainer = document.getElementById('special-image-container');
+    if (specialContainer) {
+        observer.observe(specialContainer);
+    }
+
+    function startMainPetals() {
+        // Initial burst
+        for (let i = 0; i < 15; i++) {
+            createMainPetal();
+        }
+
+        // Continuous falling
+        window.petalsInterval = setInterval(createMainPetal, 800);
+    }
+
+    function createMainPetal() {
+        const petal = document.createElement('div');
+        petal.classList.add('main-petal');
+
+        // Randomize properties
+        const size = Math.random() * 15 + 10; // 10px to 25px
+        const startLeft = Math.random() * 100; // 0% to 100% of container width
+        const animationDuration = Math.random() * 5 + 7; // 7s to 12s for slow elegant fall
+        const animationDelay = Math.random() * 2; // 0s to 2s delay
+        const colorVariant = Math.random() > 0.5 ? '#d11e3b' : '#a8152d'; // Slight color variation
+
+        petal.style.width = `${size}px`;
+        petal.style.height = `${size * 1.2}px`;
+        petal.style.left = `${startLeft}%`;
+        petal.style.backgroundColor = colorVariant;
+
+        // Animate from top of the container, falling downwards and out of it
+        // The container needs overflow:visible for this to work
+        const fallDistance = window.innerHeight * 0.8; // Fall roughly 80vh down
+
+        const keyframes = [
+            { transform: `translate3d(0,0,0) rotate(0deg)`, opacity: 0.8 },
+            { transform: `translate3d(${Math.random() * 60 - 30}px, ${fallDistance / 2}px, 0) rotate(${Math.random() * 360}deg)`, opacity: 0.8 },
+            { transform: `translate3d(${Math.random() * 100 - 50}px, ${fallDistance}px, 0) rotate(${Math.random() * 720}deg)`, opacity: 0 }
+        ];
+
+        const options = {
+            duration: animationDuration * 1000,
+            delay: animationDelay * 1000,
+            easing: 'ease-in-out',
+            fill: 'forwards'
+        };
+
+        const animation = petal.animate(keyframes, options);
+
+        petalsContainer.appendChild(petal);
+
+        // Remove element after animation finishes
+        animation.onfinish = () => {
+            if(petal.parentNode) petal.remove();
+        };
+    }
+});

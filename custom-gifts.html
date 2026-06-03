@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Ahora - Handcraft Creations</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="custom-gifts.css">
+</head>
+<body>
+    <div class="bg-wrapper">
+        <img src="images/bg.jpg" alt="Background Texture" class="bg-image">
+    </div>
+
+    <!-- Torn Edges -->
+    <div class="torn-edges">
+        <img src="images/s1.png" alt="" class="edge edge-top-left">
+        <img src="images/s2.png" alt="" class="edge edge-bottom-right">
+    </div>
+
+    <header id="main-header">
+        <a href="index.html" class="logo-container">
+            <img src="images/ahoralogo.png" alt="Ahora Logo" id="logo">
+        </a>
+
+        <nav class="hamburger-menu">
+            <input type="checkbox" id="menu-toggle">
+            <label for="menu-toggle" class="menu-icon">
+                <span class="nav-icon"></span>
+            </label>
+            <ul class="menu-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Our work</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Initial Content Section -->
+    <main id="intro-section" class="content-section">
+        <h1 class="intro-text">
+            The ones you love deserve something truly special...<br>
+            are you ready to give something this special?
+        </h1>
+        <button id="iam-btn" class="minimal-btn">I AM!</button>
+    </main>
+
+    <!-- Gift Reveal Section -->
+    <section id="gift-section" class="hidden-section">
+        <div class="glow-effect"></div>
+        <img src="images/gift.png" alt="Special Gift" id="gift-image">
+
+        <div class="product-details">
+            <h2 class="product-title">Love of Moët</h2>
+            <p class="product-price">$130</p>
+            <p class="product-description">
+                A carefully curated selection for the ones you cherish the most.<br>
+                Handcrafted details meet timeless elegance.
+            </p>
+            <button class="minimal-btn book-now-btn">Book now</button>
+        </a>
+
+        <div class="gov-warning">
+            <p><strong>GOVERNMENT WARNING:</strong> (1) According to the Surgeon General, women should not drink alcoholic beverages during pregnancy because of the risk of birth defects. (2) Consumption of alcoholic beverages impairs your ability to drive a car or operate machinery, and may cause health problems.</p>
+        </div>
+    </section>
+
+    <!-- Petals Canvas -->
+    <div id="petals-container"></div>
+
+    <script src="custom-gifts.js"></script>
+</body>
+</html>
