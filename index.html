@@ -52,13 +52,23 @@
         /* Fixed elements */
         .logo-fixed {
             position: fixed;
-            top: 20px;
+            top: 40px;
             left: 50%;
             transform: translateX(-50%);
             z-index: 5;
-            max-width: 200px;
-            width: 90%;
+            max-width: 240px;
+            width: 80%;
             height: auto;
+            transition: all 0.3s ease;
+        }
+
+        /* Mobile specific adjustments for logo */
+        @media (max-width: 768px) {
+            .logo-fixed {
+                top: 25px;
+                max-width: 150px;
+                width: 60%;
+            }
         }
 
         #sequence-canvas {
