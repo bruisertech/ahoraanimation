@@ -32,16 +32,16 @@
 
     /* Apply both animations */
     animation:
-        draw var(--draw-duration, 3s) ease-in-out infinite alternate,
-        float var(--float-duration, 6s) ease-in-out infinite alternate;
-    animation-delay: var(--draw-delay, 0s), var(--float-delay, 0s);
+        draw calc(var(--draw-duration, 3s) * 0.4) ease-in-out infinite alternate,
+        float calc(var(--float-duration, 6s) * 0.4) ease-in-out infinite alternate;
+    animation-delay: calc(var(--draw-delay, 0s) * 0.4), calc(var(--float-delay, 0s) * 0.4);
 }
 
 @keyframes draw {
-    0% {
+    0%, 15% {
         stroke-dashoffset: var(--path-length, 1000);
     }
-    100% {
+    85%, 100% {
         stroke-dashoffset: 0;
     }
 }

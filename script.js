@@ -96,6 +96,66 @@ document.addEventListener('DOMContentLoaded', () => {
                 render(images[index]);
             }
         },
+        onComplete: () => {
+            // Once the opening animation ends, we need to split the canvas visually
+            // to slide the top half up and the bottom half down naturally.
+            // We can do this by cloning the canvas into two pieces.
+
+            const topCanvas = document.createElement('canvas');
+            const bottomCanvas = document.createElement('canvas');
+
+            topCanvas.width = canvas.width;
+            topCanvas.height = canvas.height;
+            bottomCanvas.width = canvas.width;
+            bottomCanvas.height = canvas.height;
+
+            const topCtx = topCanvas.getContext('2d');
+            const bottomCtx = bottomCanvas.getContext('2d');
+
+            // Draw top half
+            topCtx.drawImage(canvas, 0, 0, canvas.width, canvas.height / 2, 0, 0, canvas.width, canvas.height / 2);
+
+            // Draw bottom half
+            bottomCtx.drawImage(canvas, 0, canvas.height / 2, canvas.width, canvas.height / 2, 0, canvas.height / 2, canvas.width, canvas.height / 2);
+
+            // Style the clones
+            topCanvas.style.position = 'fixed';
+            topCanvas.style.top = '0';
+            topCanvas.style.left = '0';
+            topCanvas.style.zIndex = '3';
+            topCanvas.style.pointerEvents = 'none';
+            topCanvas.style.width = canvas.clientWidth + 'px';
+            topCanvas.style.height = canvas.clientHeight + 'px';
+
+            bottomCanvas.style.position = 'fixed';
+            bottomCanvas.style.top = '0';
+            bottomCanvas.style.left = '0';
+            bottomCanvas.style.zIndex = '3';
+            bottomCanvas.style.pointerEvents = 'none';
+            bottomCanvas.style.width = canvas.clientWidth + 'px';
+            bottomCanvas.style.height = canvas.clientHeight + 'px';
+
+            document.body.appendChild(topCanvas);
+            document.body.appendChild(bottomCanvas);
+
+            // Hide the original canvas immediately
+            canvas.style.display = 'none';
+
+            // Animate them out
+            gsap.to(topCanvas, {
+                y: -canvas.height / 2 - 100, // Slide up
+                duration: 0.8,
+                ease: 'power2.inOut',
+                onComplete: () => topCanvas.remove()
+            });
+
+            gsap.to(bottomCanvas, {
+                y: canvas.height / 2 + 100, // Slide down
+                duration: 0.8,
+                ease: 'power2.inOut',
+                onComplete: () => bottomCanvas.remove()
+            });
+        },
         paused: true // Start paused
     });
 
