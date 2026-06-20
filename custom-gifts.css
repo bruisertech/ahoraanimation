@@ -413,9 +413,11 @@ body, html {
     left: 0;
     width: 100%;
     height: 100%;
+    max-width: none;
+    transform: none;
     display: flex;
     justify-content: center;
-    align-items: flex-start; /* Touches top edge */
+    align-items: center; /* Center vertically */
     z-index: 40; /* Below header, above background */
     opacity: 1;
     visibility: visible;
@@ -424,18 +426,18 @@ body, html {
 
 /* The Gift Image */
 #gift-image {
-    height: 90vh; /* Maximize vertical space without touching bottom */
+    height: 80vh; /* Adjusted to fit the full body gracefully */
     width: auto;
     object-fit: contain;
     position: relative;
     z-index: 42;
-    margin-top: 0; /* Touches the top edge for the cut strings */
+    margin-top: 0;
 }
 
 /* Subtle Breathing Glow behind the gift */
 .glow-effect {
     position: absolute;
-    top: 40%;
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 60vh;
