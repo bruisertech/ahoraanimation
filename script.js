@@ -247,7 +247,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const startLeft = Math.random() * 100; // 0% to 100% of container width
         const animationDuration = Math.random() * 5 + 7; // 7s to 12s for slow elegant fall
         const animationDelay = Math.random() * 2; // 0s to 2s delay
-        const colorVariant = Math.random() > 0.5 ? '#d11e3b' : '#a8152d'; // Slight color variation
+        const colorVariant = Math.random() > 0.5 ? '#D4AF37' : '#F5F5DC'; // Gold and beige color variation
 
         petal.style.width = `${size}px`;
         petal.style.height = `${size * 1.2}px`;
