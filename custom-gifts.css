@@ -322,7 +322,7 @@ body, html {
     max-width: 400px;
 }
 
-#gift-section.visible .product-details {
+#gift-section .product-details {
     opacity: 1;
     visibility: visible;
 }
@@ -376,12 +376,30 @@ body, html {
     transition: opacity 1s ease-in 1.5s, visibility 1s; /* Delay fade in */
 }
 
-#gift-section.visible .gov-warning {
+#gift-section .gov-warning {
     opacity: 1;
     visibility: visible;
 }
 
 /* Hide Elements Class */
+/* CTA Buttons layout */
+.cta-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.cta-buttons a.minimal-btn {
+    text-decoration: none;
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    font-size: 0.9rem;
+    border: 1px solid var(--text-color);
+}
+
 .hidden {
     opacity: 0 !important;
     visibility: hidden !important;
@@ -399,15 +417,9 @@ body, html {
     justify-content: center;
     align-items: flex-start; /* Touches top edge */
     z-index: 40; /* Below header, above background */
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 1.5s ease-in, visibility 1.5s;
-    pointer-events: none;
-}
-
-#gift-section.visible {
     opacity: 1;
     visibility: visible;
+    pointer-events: auto;
 }
 
 /* The Gift Image */

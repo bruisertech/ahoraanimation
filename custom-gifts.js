@@ -1,19 +1,10 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const btn = document.getElementById('iam-btn');
-    const introSection = document.getElementById('intro-section');
     const giftSection = document.getElementById('gift-section');
     const petalsContainer = document.getElementById('petals-container');
 
-    btn.addEventListener('click', () => {
-        // Hide intro section
-        introSection.classList.add('hidden');
-
-        // Show gift and background glow
-        setTimeout(() => {
-            giftSection.classList.add('visible');
-            startPetals();
-        }, 800); // Wait a bit for intro to fade out
-    });
+    // Make the gift section visible and start petals immediately
+    giftSection.classList.add('visible');
+    startPetals();
 
     function startPetals() {
         const totalPetals = 50; // Adjust for density
@@ -35,7 +26,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const startLeft = Math.random() * 100; // 0% to 100vw
         const animationDuration = Math.random() * 5 + 5; // 5s to 10s
         const animationDelay = Math.random() * 5; // 0s to 5s delay
-        const colorVariant = Math.random() > 0.5 ? '#d11e3b' : '#a8152d'; // Slight color variation
+        // Gold and Beige variations
+        const colorVariant = Math.random() > 0.5 ? '#d4af37' : '#f5f5dc';
 
         petal.style.width = `${size}px`;
         petal.style.height = `${size * 1.2}px`; // slightly taller than wide
